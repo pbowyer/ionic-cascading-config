@@ -9,9 +9,29 @@
 - [ ] Add shortcut commands for building e.g. `build:prod`, `build:uat` etc
 - [ ] Validate our config so no required fields are missing/set to the default placeholder value
 
+## Usage
+```
+# See the default configuration on screen
+$ ionic serve
+# See the dev configuration on screen
+$ ionic serve --env dev
+```
 
+The following _should_ work, but doesn't. If you know how to make it work, please let me know!
+```
+# custom arguments aren't passed through to cordova
+$ ionic cordova run --env dev
+```
 
-## Merging configurations: choices
+## How it works
+TBC
+
+## Why?
+Why does this matter? Why go to all this effort?
+
+TBC
+
+### Merging configurations: choices
 Merging configurations is not as straightforward as it first seems. When you encounter arrays, do you replace or append? Do you merge or overwrite?
 
 For this project, I've taken the approach of *merging* where possible. This keeps the code size down, but if you want more control here's other merging libraries that can be used -- and a summary of my research.
@@ -26,7 +46,7 @@ I also liked the way you can choose and change how the merge happens. It's very 
 
 Does the same job as above, with fewer options available. However it also takes care of loading the base webpack file, which gives a cleaner API in usage.
 
-**While both are called `webpack-*`, they can be used to merge our app configuration.**
+**While both are called `webpack-*`, they can be used to merge our app configuration. There are also more single-purpose libraries we can use:**
 
 #### [deepmerge](https://github.com/KyleAMathews/deepmerge)
 
