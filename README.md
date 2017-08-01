@@ -6,6 +6,7 @@
 - [x] Merge our custom webpack config into the Ionic config, so upgrading Ionic won't cause future problems
 - [x] Rewrite config paths to include the environment-specific config
 - [x] Merge our app configurations together, so properties cascade
+- [x] Possible to autocomplete the app configuration in my IDE (Jetbrains WebStorm)
 - [ ] Add shortcut commands for building e.g. `build:prod`, `build:uat` etc
 - [ ] Validate our config so no required fields are missing/set to the default placeholder value
 
@@ -21,6 +22,18 @@ The following _should_ work, but doesn't. If you know how to make it work, pleas
 ```
 # custom arguments aren't passed through to cordova
 $ ionic cordova run --env dev
+```
+
+An alternative would be to set npm scripts which set an environment variable; so far I've failed here too (but [Rob Louie's approach](https://github.com/roblouie/ionic2-environment-variables) uses it so it should work...)
+
+```
+// package.json
+  "scripts" : {
+    "build:dev" : "NODE_ENV=dev ionic-app-scripts build",
+    // Or in my dreams... regular expressions to support unlimited 
+    // configurations without adding new scripts for each
+    "build:(.*)" : "NODE_ENV=$1 ionic-app-scripts build"
+  }
 ```
 
 ## How it works
