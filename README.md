@@ -18,31 +18,21 @@ $ ionic serve
 $ ionic serve --env dev
 ```
 
-The following _should_ work, but doesn't. If you know how to make it work, please let me know!
-```
-# custom arguments aren't passed through to cordova
-$ ionic cordova run --env dev
-```
-
-An alternative would be to set npm scripts which set an environment variable; so far I've failed here too (but [Rob Louie's approach](https://github.com/roblouie/ionic2-environment-variables) uses it so it should work...)
+For Cordova I've hardcoded commands in `package.json`:
 
 ```
-// package.json
-  "scripts" : {
-    "build:dev" : "NODE_ENV=dev ionic-app-scripts build",
-    // Or in my dreams... regular expressions to support unlimited 
-    // configurations without adding new scripts for each
-    "build:(.*)" : "NODE_ENV=$1 ionic-app-scripts build"
-  }
+$ npm run cordova:build:dev
+$ npm run cordova:build:uat
+$ npm run cordova:build:prod
 ```
+
+Aside: it appears to work with the `ios` omitted from the `package.json` scripts, which allows flexibility to build for Android and iOS from one command. Not yet tested!
 
 ## How it works
 TBC
 
 ## Why?
 Why does this matter? Why go to all this effort?
-
-TBC
 
 ### Merging configurations: choices
 Merging configurations is not as straightforward as it first seems. When you encounter arrays, do you replace or append? Do you merge or overwrite?

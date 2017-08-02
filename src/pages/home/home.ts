@@ -10,7 +10,7 @@ export class HomePage {
   public code:string;
 
   constructor(public navCtrl: NavController) {
-    this.code = JSON.stringify(ENVIRONMENT);
+    this.code = JSON.stringify(ENVIRONMENT, null, 2);
   }
 
 }

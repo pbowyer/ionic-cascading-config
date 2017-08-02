@@ -7,6 +7,9 @@
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
+    "cordova:build:dev": "NODE_ENV=dev ionic cordova build ios",
+    "cordova:build:uat": "NODE_ENV=uat ionic cordova build ios",
+    "cordova:build:prod": "NODE_ENV=prod ionic cordova build ios --prod",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
