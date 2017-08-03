@@ -7,8 +7,11 @@
 - [x] Rewrite config paths to include the environment-specific config
 - [x] Merge our app configurations together, so properties cascade
 - [x] Possible to autocomplete the app configuration in my IDE (Jetbrains WebStorm)
-- [ ] Add shortcut commands for building e.g. `build:prod`, `build:uat` etc
+- [x] Add shortcut commands for building e.g. `build:prod`, `build:uat` etc
 - [ ] Validate our config so no required fields are missing/set to the default placeholder value
+
+## Installation
+See the stand-alone [installation guide](INSTALL.md).
 
 ## Usage
 ```
@@ -39,7 +42,7 @@ Merging configurations is not as straightforward as it first seems. When you enc
 
 For this project, I've taken the approach of *merging* where possible. This keeps the code size down, but if you want more control here's other merging libraries that can be used -- and a summary of my research.
 
-#### [webpack-merge](https://github.com/survivejs/webpack-merge/)
+#### ✓ [webpack-merge](https://github.com/survivejs/webpack-merge/)
 
 I chose this to merge our Webpack changes into the main configuration file. Why this and not [webpack-config](https://github.com/Fitbit/webpack-config)? Because it's more popular.
 
@@ -51,7 +54,7 @@ Does the same job as above, with fewer options available. However it also takes 
 
 **While both are called `webpack-*`, they can be used to merge our app configuration. There are also more single-purpose libraries we can use:**
 
-#### [deepmerge](https://github.com/KyleAMathews/deepmerge)
+#### ✓ [deepmerge](https://github.com/KyleAMathews/deepmerge)
 
 Allows control over how to merge arrays and array values. I chose this again because it's more widely used and I liked the idea of having control over the merging, if needed in the future.
 
