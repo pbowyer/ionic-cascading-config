@@ -7,9 +7,9 @@
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
-    "cordova:build:dev": "NODE_ENV=dev ionic cordova build ios",
-    "cordova:build:uat": "NODE_ENV=uat ionic cordova build ios",
-    "cordova:build:prod": "NODE_ENV=prod ionic cordova build ios --prod",
+    "cordova:build:dev": "cross-env NODE_ENV=dev ionic cordova build ios",
+    "cordova:build:uat": "cross-env NODE_ENV=uat ionic cordova build ios",
+    "cordova:build:prod": "cross-env NODE_ENV=prod ionic cordova build ios --prod",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
@@ -41,6 +41,7 @@
     "@ionic/app-scripts": "2.1.3",
     "@ionic/cli-plugin-cordova": "1.5.0",
     "@ionic/cli-plugin-ionic-angular": "1.4.0",
+    "cross-env": "^5.0.4",
     "ionic": "3.6.0",
     "typescript": "2.3.4",
     "webpack-merge": "^4.1.0",
