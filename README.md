@@ -16,9 +16,12 @@ See the stand-alone [installation guide](INSTALL.md).
 ## Usage
 ```
 # See the default configuration on screen
-$ ionic serve
+$ npm run ionic:serve
 # See the dev configuration on screen
-$ ionic serve --env dev
+$ npm run ionic:serve:dev
+# You get the pattern... two others defined are
+$ npm run ionic:serve:uat
+$ npm run ionic:serve:prod
 ```
 
 For Cordova I've hardcoded commands in `package.json`:
