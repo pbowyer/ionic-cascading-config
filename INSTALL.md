@@ -3,9 +3,8 @@
   1. First we need to install a couple of packages:
      ```
      npm install --save-dev webpack-merge
+     npm install --save-dev cross-env
      npm install --save deepmerge
-     # And temporarily
-     npm install --save yargs-parser
      ```
   1. Create config directory `config/`
   1. Put this file `webpack.config.js` inside that directory

@@ -34,11 +34,25 @@ $ npm run cordova:build:prod
 
 Aside: it appears to work with the `ios` omitted from the `package.json` scripts, which allows flexibility to build for Android and iOS from one command. Not yet tested!
 
+## How to add custom environments
+In this example we'll create the environment `myspecialone`.
+
+  1. Create a file in `src/environments` called `environment.myspecialone.ts`.
+  1. Open `package.json` and add scripts for this environment to the scripts section:
+     ```
+     "cordova:build:myspecialone": "cross-env NODE_ENV=myspecialone ionic cordova build ios --prod",
+     "ionic:serve:myspecialone": "cross-env NODE_ENV=myspecialone ionic serve",
+     ```
+  1. That's it :)
+  
+Sorry it's not more automatic, I can't think of a way to auto-generate these commands. If you know how, [tell me](https://github.com/pbowyer/ionic-cascading-config/issues/new)!
 ## How it works
 TBC
 
 ## Why?
 Why does this matter? Why go to all this effort?
+
+Having used [Symfony](https://www.symfony.com) for many years I've come to appreciate config files that inherit other config files. It reduces repetition, allows composition, and makes working with them more pleasant.
 
 ### Merging configurations: choices
 Merging configurations is not as straightforward as it first seems. When you encounter arrays, do you replace or append? Do you merge or overwrite?
@@ -74,4 +88,12 @@ I spent a while looking for an existing library to use. My requirements were:
 
 #### dotenv
   
-`.env` ([dotenv]()) is great for setting current values, and there are work-arounds for storing different environments and cascading them (see this great post for how to with React)
+`.env` ([dotenv](https://www.npmjs.com/package/dotenv)) is great for setting current values, and there are work-arounds for storing different environments and cascading them (see this great post for how to with React)
+
+# TODO
+
+  - [ ] Investigate if combining with [dotenv](https://www.npmjs.com/package/dotenv) makes sense, so sensitive credentials are stored separately from the environment files (i.e. not in Git)
+  - [ ] Add `CHANGELOG.md` and `UPGRADE.md` to the repository
+  - [ ] Investigate packaging as a NPM package
+  - [ ] Switch to releases, and record breaking changes
+  - [ ] More documentation, notes, rationale etc 
