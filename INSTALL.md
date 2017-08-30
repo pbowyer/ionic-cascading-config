@@ -19,9 +19,9 @@
      If you do have an existing config section, add that specific line to it
   1. Also in the `package.json` file, add some script aliases. These are easier to type commands to build with your custom configs than typing them out each time. For my sample config files, add these to the end of the `"scripts"` block:
       ```
-      "cordova:build:dev": "NODE_ENV=dev ionic cordova build ios",
-      "cordova:build:uat": "NODE_ENV=uat ionic cordova build ios",
-      "cordova:build:prod": "NODE_ENV=prod ionic cordova build ios --prod",
+      "cordova:build:dev": "cross-env NODE_ENV=dev ionic cordova build ios",
+      "cordova:build:uat": "cross-env NODE_ENV=uat ionic cordova build ios",
+      "cordova:build:prod": "cross-env NODE_ENV=prod ionic cordova build ios --prod",
       "ionic:serve:dev": "NODE_ENV=dev npm run ionic:serve",
       "ionic:serve:uat": "NODE_ENV=uat npm run ionic:serve",
       "ionic:serve:prod": "NODE_ENV=prod npm run ionic:serve",
